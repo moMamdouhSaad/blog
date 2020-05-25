@@ -1,0 +1,51 @@
+#banner-container{
+    height: 235px;
+    background-color: #1976D2;
+
+
+}
+.container{
+    height: 100%;
+}
+#logo-container{
+    height: 110px;
+}
+#logo-container img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#nameAndDescription-container{
+    padding:10px
+}
+#name{
+    color: rgb(245,255,255);
+    font-size: 2rem;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 600;
+    margin-left:auto;
+
+}
+#description{
+    color: rgb(231, 240, 240);
+    font-size: 1.5rem;
+    font-family: 'Almarai', sans-serif;
+    margin-left:auto;
+}
+
+p{
+    padding:0;
+    margin:0
+}
+
+
+@media screen and (max-width: 479px) {
+    /* start of phone styles */
+    .logo-nameAndDesc-container{
+        display: flex;
+        flex-direction: column !important;
+        align-items:flex-end !important
+    }
+    
+    
+    }
