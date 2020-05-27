@@ -12,6 +12,7 @@
 
 #logo-container{
     height: 70px;
+    cursor: pointer;
 }
 #logo-container img {
     max-width:100%;
