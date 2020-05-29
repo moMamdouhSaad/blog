@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -6,8 +7,8 @@ import { Component, OnInit, HostListener } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  isLoggedIn:boolean;
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -22,7 +23,9 @@ export class HeaderComponent implements OnInit {
     document.getElementById("header-container").style.top = "-70px";
   }
   this.prevScrollpos = currentScrollPos;
-
 }
+  logOut(){
+    this.authService.logout();
+  }
 
 }

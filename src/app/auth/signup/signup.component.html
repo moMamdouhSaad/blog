@@ -1,0 +1,42 @@
+<!-- https://www.tutorialrepublic.com/snippets/preview.php?topic=bootstrap&file=sign-in-form-with-circular-social-buttons -->
+<div class='container'>
+
+    <div class='row d-flex justify-content-between align-items-center' style='height: 100%;'>
+        <div class='col-12'>
+            <div class="signin-form">
+                <form [formGroup]='signUpForm'>
+                    <h2>Sign up</h2>
+                    <p class="hint-text">Sign up</p>
+                   
+                    <div class="form-group">
+                        <input type="text" class="form-control input-lg" formControlName="username" placeholder="Username" required="required">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control input-lg" formControlName="email" placeholder="email" required="required">
+                    </div>
+
+                    <div class="form-group ">
+                        <input type="file" id="file" accept=".png,.jpg" #userPhoto (change)="onFileSelected($event)" name="image" autocomplete="off"/>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control input-lg" formControlName="password" placeholder="Password" required="required">
+                    </div> 
+                    
+                    <div class="form-group">
+                        <input type="password" class="form-control input-lg" formControlName="cPassword" placeholder="Confirm password" required="required">
+                    </div> 
+                    <div class="form-group">
+                        <button (click)='signUp()' class="btn btn-success btn-lg btn-block signup-btn">Sign up</button>
+                    </div>
+                    <div class="text-center small">
+                        <p class="small text-center">By clicking the Sign Up button, you agree to our <a href="#">Terms &amp; Conditions</a>, and <a href="#">Privacy Policy</a></p>
+                    </div>
+                </form>
+                <div class="text-center small">Already have an account? <a [routerLink]="['/login']">Sign in</a></div>
+            </div>
+        </div>
+    </div>
+   
+</div>

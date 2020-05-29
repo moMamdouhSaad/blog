@@ -4,14 +4,59 @@
         <div class='row justify-content-between align-items-center' style='height: 100%;'>
 
             <div id='nav-container'>
-                    <span><a href='#'> سجل </a></span>
+                       <!-- if not logged in   -->
+                    <ng-container *ngIf='(authService.isLoggedIn$() | async) === false'>
+                    <span><a [routerLink]="['/signup']"> سجل </a></span>
                     <span><a [routerLink]="['/login']">تسجيل دخول </a></span>
+                    </ng-container>
+
+                    
+
+
+                        <!-- If logged in -->
+                      <div class='loggedin-nav-container'  *ngIf='(authService.isLoggedIn$() | async) === true'>
+
+                        
+
+                        <div  id='profileImg-container' class='dropdown'>
+                            <img  [src]='authService.getCurrentUserPicture()'/>
+                        <div class="dropdown-content">
+                           <div id='dropown-container'>
+                            <div id='drop-img'>
+                                <img [src]='authService.getCurrentUserPicture()'/>
+                            </div>
+                            <div id='drop-name'>
+                                <span id='current-user'>{{authService.getCurrentUser()}}</span>
+                            </div>
+                            <div class="col"><hr></div>
+                            <div class='col' id='add-post-container'>
+                               <a [routerLink]="['/add-post']"> Add post </a>
+                            </div>
+                            <div class="col"><hr></div>
+
+                            <button class="btn default" (click)='logOut()' id='signout-btn'>Signout</button>
+                           </div> 
+                        </div>
+    
+                        </div>
+
+                        <div  class='icon-container' data-toggle="tooltip" data-placement="right" title="Notifications">
+                            <i class="fa fa-bell"></i>
+                        </div>
+
+                        <div class='icon-container' data-toggle="tooltip" data-placement="right" title="Bookmarks">
+                            <i class="fa fa-bookmark" ></i>
+                        </div>
+                    </div>  
+                  
+                  
+
+
             </div>    
             
             <div id='logo-container' [routerLink]="['/']">
                 <img src='/assets/ng-logo.png'>
             </div>
-
         </div>
 
     </div>

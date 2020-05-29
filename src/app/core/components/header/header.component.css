@@ -7,7 +7,6 @@
     position: sticky; /* Make it stick/fixed */
     top: 0; /* Stay on top */
     transition: top 0.3s; /* Transition effect when sliding down (and up) */
-
 }
 
 #logo-container{
@@ -31,6 +30,114 @@ a{
     padding-left:5%;
     font-family: 'Almarai', sans-serif;
     font-size: 1rem;
-    /* font-size: 30px; */
+}
+#current-user{
+    color:rgb(0, 0, 0);
+    font-size: 1rem;
+    font-weight: bold;
+}
+#profileImg-container{
+    height: 70px;
+    display: inline-block;
+    padding:1rem;
+    cursor: pointer;
+    box-sizing: border-box;
 
 }
+#profileImg-container img:hover{
+    border:2px rgb(172, 172, 172) solid
+}
+#profileImg-container img{
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    /* border:2px red dashed; */
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+
+    -webkit-box-shadow: 0px 0px 23px -6px rgb(0, 0, 0);
+    -moz-box-shadow: 0px 0px 23px -6px rgb(0, 0, 0);
+    box-shadow: 0px 0px 23px -6px rgb(10, 10, 10);
+
+    margin-top:1rem;
+    width: 400px;
+    max-width: 90vw;
+    border-radius: 0.7rem;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  #dropown-container{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+
+  }
+  #drop-img{
+      height: 4rem;
+      margin-bottom: 1rem;
+  }
+
+  #signout-btn{
+    position: absolute;
+    bottom:   0.5rem;
+    border: 1px solid rgba(88, 87, 87, 0.521);
+    padding:0.5rem 2rem 0.5rem 2rem
+  }
+
+  #signout-btn:hover{
+      background-color: #c5c5c59d;
+  }
+
+  #notification-container{
+      display: inline-block;
+  }
+
+  .icon-container{
+     height: 70px;
+     display: flex;
+     padding:1rem 0.8rem 1rem 0.8rem;
+     cursor: pointer;
+     box-sizing: border-box;
+     align-items: center;
+
+
+      }
+      .icon-container i {
+          font-size: 1.2rem;
+          color: transparent;
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: rgba(255, 255, 255, 0.781);
+          
+      }
+
+    .loggedin-nav-container{
+        display: flex;
+        flex-direction: row;
+    }  
+
+    #add-post-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #add-post-container a {
+        color:rgb(53, 79, 194)
+    }
