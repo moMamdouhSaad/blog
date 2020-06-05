@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     this.authService.signInWithEmailAndPassword(email, password)
   }
 
-  signInWithFacebook(){
+  signInWithFacebook(){ // still not working
     this.authService.signInWithFacebook().then((res)=>{
       this.router.navigate(['/dasdsa'])
     }
@@ -37,9 +37,7 @@ export class LoginComponent implements OnInit {
 
    signInWithGoogle(){
     this.authService.signInWithGoogle().then((res:any)=>{
-      console.log(res.additionalUserInfo.profile)
       this.authService.setCurrentUser(res.additionalUserInfo.profile)
-      // this.router.navigate(['/'])
       this.zone.run(() => { this.router.navigate(['/'])})
 
     }).catch((err)=>console.log(err))

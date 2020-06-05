@@ -18,33 +18,26 @@ export class SignupComponent implements OnInit {
   filePath:any;
   fileRef:any;
   task:any;
+  fb:any;
+  downloadURL: Observable<string>;
 
    signUpForm:FormGroup = new FormGroup({
      email: new FormControl('',[Validators.required]),
      username: new FormControl('',[Validators.required]),
      password: new FormControl('',[Validators.required]),
      cPassword: new FormControl('',[Validators.required]),
-     imageURL: new FormControl('',[Validators.required])
+     imageURL: new FormControl('',[Validators.required]),
+     role: new FormControl(1)
    });
    
-   fb;
-   downloadURL: Observable<string>;
+  
 
   constructor(private authService: AuthService, private storage: AngularFireStorage, private loaderService: LoaderService, private router: Router) { }
 
   ngOnInit(): void {
   }
   signUp(){
-    console.log("???? hena")
     this.loaderService.setLoader(true);
-    const email = this.signUpForm.get('email').value;
-    const password = this.signUpForm.get('password').value;
-    const userData = {
-     email: this.signUpForm.get('email').value,
-     password: this.signUpForm.get('password').value,
-     username: this.signUpForm.get('username').value,
-     imageURL: this.signUpForm.get('imageURL').value   
-    }
     this.task
     .snapshotChanges()
     .pipe(
@@ -54,13 +47,10 @@ export class SignupComponent implements OnInit {
           if (url) {
             this.fb = url;
           }
-          console.log(this.fb);
           this.signUpForm.patchValue({imageURL:this.fb})
-          console.log(userData);
-          console.log(this.signUpForm.value)
           this.authService.signUp(this.signUpForm.value).then(()=>{
             this.loaderService.setLoader(false);
-            this.authService.signInWithEmailAndPassword(userData.email, userData.password)
+            this.authService.signInWithEmailAndPassword(this.signUpForm.get('email').value, this.signUpForm.get('password').value)
           }).catch(e=>console.log(e))
          
           // this.router.navigate(['/']);
