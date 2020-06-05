@@ -21,7 +21,7 @@ export class AuthService {
    }
 
    signUp(userData: any){
-      this._firebaseAuth.auth.createUserWithEmailAndPassword(userData.email, userData.password).then(res=>{
+     return this._firebaseAuth.auth.createUserWithEmailAndPassword(userData.email, userData.password).then(res=>{
         this.setUserData(userData);
         console.log('successfuly registered', res)
       })
@@ -34,6 +34,7 @@ export class AuthService {
         const userID = this._firebaseAuth.auth.currentUser.uid;
         this.firestore.collection(`users`).valueChanges().pipe(map((x:any)=>x.filter(y=>y.userID == userID)))
         .subscribe(data=>{
+          console.log(data)
           const profile = {
             name: data[0].username,
             picture:data[0].imageURL
@@ -47,7 +48,7 @@ export class AuthService {
       .catch(error=>console.log('Something is wrong:', error.message));
 
       }
-      // AngularFirestoreDocument
+      // AngularngDocument
    setUserData(userData:any){
         const userDetails = {
           userID: this._firebaseAuth.auth.currentUser.uid,
