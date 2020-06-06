@@ -37,7 +37,14 @@ export class LoginComponent implements OnInit {
 
    signInWithGoogle(){
     this.authService.signInWithGoogle().then((res:any)=>{
-      this.authService.setCurrentUser(res.additionalUserInfo.profile)
+      console.log(res.additionalUserInfo.profile)
+      const profile = {
+        username: res.additionalUserInfo.profile.name,
+        imageURL: res.additionalUserInfo.profile.picture,
+        role:'user'
+      }
+      this.authService.setCurrentUser(profile);
+      // localStorage.setItem('currentUser', JSON.stringify(currentUser));
       this.zone.run(() => { this.router.navigate(['/'])})
 
     }).catch((err)=>console.log(err))

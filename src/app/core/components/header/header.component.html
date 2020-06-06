@@ -17,7 +17,7 @@
                       <div class='loggedin-nav-container'  *ngIf='(authService.isLoggedIn$() | async) === true'>
 
                         
-
+                          <div *ngIf='authService.getUserRole() === "admin" '>admin</div>  
                         <div  id='profileImg-container' class='dropdown'>
                             <img  [src]='authService.getCurrentUserPicture()'/>
                         <div class="dropdown-content">
@@ -26,7 +26,7 @@
                                 <img [src]='authService.getCurrentUserPicture()'/>
                             </div>
                             <div id='drop-name'>
-                                <span id='current-user'>{{authService.getCurrentUser()}}</span>
+                                <span id='current-user'>{{authService.getCurrentUserName()}}</span>
                             </div>
                             <div class="col"><hr></div>
                             <div class='col' id='add-post-container'>

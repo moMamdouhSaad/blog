@@ -27,7 +27,7 @@ export class SignupComponent implements OnInit {
      password: new FormControl('',[Validators.required]),
      cPassword: new FormControl('',[Validators.required]),
      imageURL: new FormControl('',[Validators.required]),
-     role: new FormControl(1)
+     role: new FormControl('user')
    });
    
   

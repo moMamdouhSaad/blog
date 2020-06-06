@@ -7,6 +7,7 @@ import { SignupComponent } from './signup/signup.component';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from "@angular/fire/storage";
 import { SharedModule } from '../shared/shared.module';
+import { JwtModule } from '@auth0/angular-jwt';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { SharedModule } from '../shared/shared.module';
     AuthRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
   ],
   exports: [LoginComponent],
   providers: [AngularFirestore, AngularFireStorage]

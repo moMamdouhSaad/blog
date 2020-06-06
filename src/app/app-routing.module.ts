@@ -9,9 +9,16 @@ const routes: Routes = [{
   pathMatch:'full'
   },
   {
-  path: 'add-post',
+  path:'add-post',
   loadChildren:()=>import('./add-post/add-post.module').then(m=>m.AddPostModule),
-  canActivate: [AuthGuardService]
+  canActivate: [AuthGuardService],
+  data:{roles:['admin', 'user']}
+  },
+  {
+    path:'dashboard',
+    loadChildren:()=>import('./dashboard/dashboard.module').then(m=>m.DashboardModule),
+    canActivate: [AuthGuardService],
+    data:{roles:['admin']}
   }
 ];
 
